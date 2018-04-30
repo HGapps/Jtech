@@ -17,6 +17,55 @@
   opacity: 0.1;
 }
 
+a, p {
+  color: #888888;
+  font-weight: 400
+}
+
+.product {
+  border-radius: 5px;
+  border: 1px solid #eeeeee;
+  text-align: center;
+  margin-bottom: 8PX;
+}
+
+.product img {
+  float: right;
+  width: 96%;
+  height: 16vh;
+  border-radius: 15px;
+  float: right;
+  margin: 5px;
+  padding: 4px 2%;
+}
+
+.prd_content {
+  width: 100%;
+}
+
+.product h2 {
+  color: #000000;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.product p {
+  display: block;
+  overflow: hidden;
+  padding: 0 10px;
+  max-height: 6vh;
+  MARGIN-BOTTOM: 5PX;
+}
+
+.product span {
+  font-size: 14px;
+}
+
+.main {
+  padding-top: 15px;
+}
+
 body, div {
   overflow: hidden;
 }
@@ -98,8 +147,9 @@ body {}
   left: 20%;
   width: 60%;
   color: #ffffff !important;
-  bottom: -25%;
+  top: 80%;
   z-index: 99;
+  opacity: 0
 }
 
 .check_interent {
@@ -150,6 +200,12 @@ form a, .login_form a, .check_ticket_by_number a {
   border: 0;
   color: #f68122;
   font-size: 2em;
+}
+
+#show_menu i {
+  padding: 5px;
+  background: #ffffff;
+  border-radius: 5px;
 }
 
 .tab-content {
@@ -348,8 +404,8 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
 .madad_body {}
 
 .header {
-  /*background-color: #0172bb !important;*/
-  height: 50px;
+  /*background-color: #0172bb !important;
+  height: 50px;*/
   margin-bottom: 50px;
   z-index: 99999;
   position: fixed;
@@ -366,7 +422,9 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
 
 .jt_device {
   z-index: 1;
-  left: -100%;
+  left: 28%;
+  top: 50%;
+  opacity: 0;
 }
 
 .jt_shad {
@@ -438,8 +496,10 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
 .splash .logo {
   position: absolute;
   top: 11vh;
-  right: -100%;
+  right: 20%;
+  top: 32%;
   max-width: 60%;
+  opacity: 0;
 }
 
 .post_area {
@@ -594,7 +654,7 @@ label {
 }
 
 #carouselExampleIndicators {
-  margin-top: 35px;
+  margin-top: 15px;
 }
 
 .carousel {
@@ -699,6 +759,7 @@ form label {
   border: none;
   border: 1px solid #0172bb;
   box-shadow: none !important;
+  line-height: 1.1;
 }
 
 iframe {

@@ -53,19 +53,17 @@ var app = {
 					.fadeIn(1000);
 			} else {
 				//alert("Connected");
-				/*$(".skip_to_home")
-					.fadeIn(1000);*/
+				$(".skip_to_home").delay(2000).animate({
+	        "opacity": "1"
+	      });
 
-					$(".skip_to_home").delay(500).fadeIn(500).animate({
-	          "bottom": "11%"
-	        },2000);
 			}
 		}
 		checkConnection();
 		//FCMPlugin.subscribeToTopic( topic, successCallback(msg), errorCallback(err) );
 		//All devices are subscribed automatically to 'all' and 'ios' or 'android' topic respectively.
 		//Must match the following regular expression: "[a-zA-Z0-9-_.~%]{1,900}".
-		FCMPlugin.subscribeToTopic('HasanGadSupport');
+		FCMPlugin.subscribeToTopic('JANAtechSA');
 		/*---------------------------------------------------------*/
 		// SOURCE :: https://forums.adobe.com/thread/2266393
 		// SOURCE 2 :: https://github.com/hasangad/cordova-plugin-fcm
