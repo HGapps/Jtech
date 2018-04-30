@@ -53,8 +53,12 @@ var app = {
 					.fadeIn(1000);
 			} else {
 				//alert("Connected");
-				$(".skip_to_home")
-					.fadeIn(1000);
+				/*$(".skip_to_home")
+					.fadeIn(1000);*/
+
+					$(".skip_to_home").delay(500).fadeIn(500).animate({
+	          "bottom": "11%"
+	        },2000);
 			}
 		}
 		checkConnection();
