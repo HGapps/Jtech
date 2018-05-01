@@ -63,7 +63,7 @@ a, p {
 }
 
 .main {
-  padding-top: 15px;
+  padding-top: 30px;
 }
 
 body, div {
@@ -144,20 +144,20 @@ body {}
 
 .skip_to_home {
   position: absolute;
-  left: 20%;
-  width: 60%;
+  left: 0%;
+  width: 100%;
   color: #ffffff !important;
-  top: 80%;
+  bottom: 0%;
   z-index: 99;
   opacity: 0
 }
 
 .check_interent {
   position: absolute;
-  left: 20%;
-  width: 60%;
+  left: 0%;
+  width: 100%;
   color: #ffffff !important;
-  bottom: 10%;
+  bottom: 0%;
   z-index: 99;
 }
 
@@ -165,13 +165,23 @@ body {}
   border: 1px solid #f0ad4e !important;
 }
 
+.login_success {
+  FLOAT: left;
+  border-radius: 0 !important;
+  width: 100%;
+  padding: 29px 18% 15px 0 !important;
+  background: #04619d !important;
+  color: #ffffff;
+}
+
 .login_form {
-  margin-top: 20px;
+  margin-top: 0px;
 }
 
 .alert {
   border-radius: 25px;
   overflow: hidden;
+  padding: 4px 10px;
 }
 
 .main_menu a {
@@ -200,6 +210,7 @@ form a, .login_form a, .check_ticket_by_number a {
   border: 0;
   color: #f68122;
   font-size: 2em;
+  position: absolute;
 }
 
 #show_menu i {
@@ -260,8 +271,8 @@ form a, .login_form a, .check_ticket_by_number a {
 }
 
 .bottom_buttons a {
-  display: block;
-  width: 80%;
+  display: block !important;
+  width: 90%;
   margin: 0 auto;
   clear: both;
 }
@@ -289,18 +300,6 @@ form a, .login_form a, .check_ticket_by_number a {
   height: 48px;
 }
 
-.posts h2 {
-  line-height: 200%
-}
-
-.posts .comment {
-  background: #fafff9;
-  padding: 14px;
-  border-radius: 15px;
-  margin: 10px 0;
-  border: 3px solid #79ca65;
-}
-
 .main_ticket {
   box-shadow: inset #fdf2d5 0px 0px 100px 0px;
   border: 2px solid;
@@ -313,11 +312,38 @@ form a, .login_form a, .check_ticket_by_number a {
   font-size: 1em;
 }
 
+.posts h2 {
+  line-height: 200%
+}
+
+.comment h2 {
+  float: right;
+  width: 19%;
+  border-radius: 100%;
+  padding: 10px;
+  font-size: 0.7em;
+  font-weight: 400;
+  text-align: center;
+  border: 4px solid #168fc5;
+  zoom: 0.7;
+  margin-top: 24px;
+}
+
+.posts .comment p {
+  float: left;
+  width: 80%;
+  background: #f7fdff;
+  padding: 14px;
+  border-radius: 0px;
+  margin: 10px 0;
+  border-bottom: 2px solid #2f8ce6;
+}
+
 .posts .comment:nth-child(even) {
   /*background: #f9f9f9;*/
 }
 
-#logout {
+/*#logout {
   position: absolute;
   left: 10px;
   top: 6px;
@@ -325,12 +351,12 @@ form a, .login_form a, .check_ticket_by_number a {
   border: 0;
   padding: 4px 8px;
   background: red;
-}
+}*/
 
-#logout i {
+/*#logout i {
   color: #ffffff;
   font-size: 1.8em;
-}
+}*/
 
 .ui-page-theme-a .ui-btn {
   background-color: transparent;
@@ -404,14 +430,15 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
 .madad_body {}
 
 .header {
-  /*background-color: #0172bb !important;
-  height: 50px;*/
-  margin-bottom: 50px;
+  margin: 0px;
   z-index: 99999;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
+  /* background: red; */
+  width: 100%;
+  height: 10vh;
 }
 
 .jt {
