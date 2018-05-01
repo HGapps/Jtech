@@ -214,6 +214,7 @@ form a, .login_form a, .check_ticket_by_number a {
 }
 
 #show_menu i {
+  /**/
   padding: 5px;
   background: #ffffff;
   border-radius: 2px;
