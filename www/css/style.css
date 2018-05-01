@@ -223,6 +223,10 @@ form a, .login_form a, .check_ticket_by_number a {
   margin-top: 15px;
 }
 
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  margin-top: 18vh;
+}
+
 .main_menu a.active {}
 
 .t_id {
