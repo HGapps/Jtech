@@ -5,6 +5,30 @@
   display: none;
 }
 
+a {
+  text-decoration: none !important
+}
+
+table tr {
+  background-color: transparent
+}
+
+.h2 {
+  color: #0c70ac;
+  border-bottom: 3px solid #0c70ac;
+  padding-bottom: 15px;
+  font-size: 18px !important;
+}
+
+.h2 i {
+  float: right;
+  padding-left: 8px;
+}
+
+table tr .btn {
+  font-size: 12px;
+}
+
 ::-webkit-scrollbar {
   width: 1px;
   height: 1px;
@@ -30,13 +54,12 @@ a, p {
 }
 
 .product img {
-  float: right;
-  width: 96%;
+  width: 100%;
   height: 16vh;
-  border-radius: 15px;
+  border-radius: 0px;
   float: right;
-  margin: 5px;
-  padding: 4px 2%;
+  margin: 0px auto 10px auto;
+  padding: 0;
 }
 
 .prd_content {
@@ -44,7 +67,7 @@ a, p {
 }
 
 .product h2 {
-  color: #000000;
+  color: #106792;
   font-size: 16px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -59,11 +82,14 @@ a, p {
 }
 
 .product span {
-  font-size: 14px;
+  font-size: 12px;
+  margin: 10px auto 0 auto;
+  width: 100%;
+  border-radius: 0;
 }
 
 .main {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 body, div {
@@ -150,6 +176,21 @@ body {}
   bottom: 0%;
   z-index: 99;
   opacity: 0
+}
+
+.skip_to_home_icon {
+  position: absolute;
+  left: 15%;
+  width: auto;
+  color: #ffffff !important;
+  bottom: 45%;
+  z-index: 99;
+  opacity: 0
+}
+
+.skip_to_home_icon i {
+  color: #0172bb;
+  font-size: xx-large;
 }
 
 .check_interent {
@@ -701,7 +742,7 @@ label {
 .carousel img {
   display: block;
   max-width: 100%;
-  min-height: 40vh;
+  min-height: 200px;
   border-radius: 20px;
   overflow: hidden;
   ;
@@ -781,9 +822,9 @@ form label {
 
 .form-control {
   border-radius: 0px;
-  background: #f7f7f7;
-  font-size: medium;
-  /* padding: 10px; */
+  background: #ffffff;
+  font-size: 14px;
+  ;
   font-family: "Droid Arabic Kufi", tahoma;
   height: auto;
   margin-bottom: 10px;
@@ -791,7 +832,6 @@ form label {
   border: none;
   border: 1px solid #0172bb;
   box-shadow: none !important;
-  line-height: 1.1;
 }
 
 iframe {

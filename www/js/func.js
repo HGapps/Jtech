@@ -181,6 +181,13 @@
   						"right": "-100%"
   					});
   			});
+  		$(".skip_to_home_icon")
+  			.click(function() {
+  				$(".splash")
+  					.animate({
+  						"right": "-100%"
+  					});
+  			});
   		$(".bottom_buttons a")
   			.click(function() {
   				$(".bottom_buttons")
