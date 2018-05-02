@@ -76,7 +76,7 @@ var app = {
 		//FCMPlugin.getToken( successCallback(token), errorCallback(err) );
 		//Keep in mind the function will return null if the token has not been established yet.
 		FCMPlugin.getToken(function(token) {
-			//alert(token);
+			alert(token);
 		});
 		//FCMPlugin.onNotification( onNotificationCallback(data), successCallback(msg), errorCallback(err) )
 		//Here you define your application behaviour based on the notification data.
