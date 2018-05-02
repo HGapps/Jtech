@@ -13,7 +13,6 @@ JANA Tech جنى تك
     <preference name="orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true"/>
     <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="true" />
     <preference name="BackgroundColor" value="#000000"/>
     <preference name="webviewbounce" value="true" />
     <preference name="prerendered-icon" value="true" />
@@ -31,14 +30,18 @@ JANA Tech جنى تك
     <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-network-information" />
 
-    <platform name="ios">
+    <!--<platform name="ios">-->
+        <gap:config-file plateform="ios">
+          <preference name="fullscreen" value="true" />
+
       <!-- Source :: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-statusbar/ -->
-          <plugin name="cordova-plugin-statusbar" />
+    <plugin name="cordova-plugin-statusbar" />
           <!--<preference name="ios-statusbarstyle" value="black-opaque" />-->
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#0172bb" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    </platform>
+  </gap:config-file>
+    <!--</platform>-->
 
   <!--  <plugin name="cordova-plugin-splashscreen" />-->
 
