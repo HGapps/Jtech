@@ -10,7 +10,7 @@ a {
 }
 
 table tr {
-  background-color: transparent
+  background-color: transparent !important
 }
 
 .h2 {
@@ -365,8 +365,8 @@ form a, .login_form a, .check_ticket_by_number a {
 .comment h2 {
   float: right;
   width: 19%;
-  border-radius: 100%;
-  padding: 10px;
+  border-radius: 20%;
+  padding: 15px;
   font-size: 0.7em;
   font-weight: 400;
   text-align: center;
@@ -457,6 +457,10 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
 .cars_list {
   display: block;
   overflow: hidden;
+}
+
+.page {
+  padding-top: 10px;
 }
 
 .about {}

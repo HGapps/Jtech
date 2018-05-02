@@ -159,13 +159,15 @@
         </div>
         <!-- End of favs -->
         <!-- start of loggedin user -->
-        <div class="logged_in container-fluid" style="display:none">
-          <div class="products">
-            <h2>منتجاتي</h2>
+        <div class="logged_in container-fluid page" style="display:none">
+          <div class="products page">
+            <h2 class="h2">
+              <i class="fa fa-th"></i>منتجاتي</h2>
             <br/>
           </div>
-          <div class="tickets">
-            <h2>طلبات الصيانة
+          <div class="tickets page">
+            <h2 class="h2">
+              <i class="fa fa-cogs"></i>طلبات الصيانة
             </h2>
             <br/>
           </div>
@@ -206,7 +208,7 @@
       <a class="show_about">
         <i class="fa fa-info-circle"></i>
         <span>عن التطبيق</span></a>
-      <a id="logout" style="display:none">
+      <a id="logout" style="display:none !important">
         <i class="fa fa-power-off"></i>
         <span>تسجيل الخروج</span>
       </a>
@@ -214,6 +216,7 @@
     <!------------------------------------------>
     <script src="js/jquery.min.js"></script>
     <script>
+      /*------------------------------------*/
       $(document).on('click', '.t_show', function () {
         if ($(".t_id").val() !== "") {
           $(".preloader").fadeIn();
