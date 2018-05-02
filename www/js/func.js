@@ -212,8 +212,20 @@ $(document)
 				$(".posts")
 					.html("");
 			});
+		$(".order_pr")
+			.click(function() {
+				$(".order_form")
+					.stop()
+					.slideToggle();
+				$(".posts")
+					.html("");
+			});
 		$(".new_user")
 			.click(function() {
+				$(".splash")
+					.animate({
+						"right": "-100%"
+					});
 				$(".page")
 					.slideUp();
 				$("#new_user")
