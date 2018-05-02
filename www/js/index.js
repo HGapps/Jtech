@@ -58,6 +58,11 @@ var app = {
 					.animate({
 						"opacity": "1"
 					});
+				$(".new_user")
+					.delay(2200)
+					.animate({
+						"opacity": "1"
+					});
 			}
 		}
 		checkConnection();
