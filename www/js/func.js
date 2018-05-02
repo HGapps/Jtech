@@ -42,6 +42,8 @@ $(document)
 				.show();
 			$("#logout")
 				.show();
+			$(".login_link")
+				.hide();
 			get_user_prdcts($storedID);
 			get_user_tickets($storedID);
 		}
@@ -128,6 +130,8 @@ $(document)
 				.html('جار التحقق ...');
 			var user = $(".user")
 				.val();
+			/*--- convert letters to lower case ----*/
+			user = user.toLowerCase();
 			var pass = $(".pass")
 				.val();
 			//alert(user); var dataString = "user=" + user + "&pass=" + pass + "&login=";

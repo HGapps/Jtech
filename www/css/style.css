@@ -168,6 +168,10 @@ body {}
   opacity: 1;
 }
 
+.user {
+  text-transform: lowercase;
+}
+
 .skip_to_home {
   position: absolute;
   left: 0%;
@@ -175,7 +179,9 @@ body {}
   color: #ffffff !important;
   bottom: 0%;
   z-index: 99;
-  opacity: 0
+  opacity: 0;
+  font-size: 12px;
+  border-radius: 0;
 }
 
 .skip_to_home_icon {
