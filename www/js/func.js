@@ -197,47 +197,27 @@
   			});
   		$(".login_link")
   			.click(function() {
+  				$(".page")
+  					.slideUp();
   				$(".login_form")
   					.stop()
   					.slideToggle();
-  				$(".check_ticket_by_number")
-  					.slideUp();
-  				$(".logged_in")
-  					.slideUp();
-  				$(".about")
-  					.slideUp();
-  				$(".favs")
-  					.slideUp();
   				$(".posts")
   					.html("");
   			});
   		$(".user_index")
   			.click(function() {
+  				$(".page")
+  					.slideUp();
   				$("#user_index")
   					.stop()
   					.slideToggle();
-  				$(".login_form")
-  					.slideUp();
-  				$(".check_ticket_by_number")
-  					.slideUp();
-  				$(".logged_in")
-  					.slideUp();
-  				$(".about")
-  					.slideUp();
-  				$(".favs")
-  					.slideUp();
   				$(".posts")
   					.html("");
   			});
   		$(".search_link")
   			.click(function() {
-  				$(".login_form")
-  					.slideUp();
-  				$(".about")
-  					.slideUp();
-  				$(".favs")
-  					.slideUp();
-  				$(".logged_in")
+  				$(".page")
   					.slideUp();
   				$(".check_ticket_by_number")
   					.stop()
@@ -247,33 +227,21 @@
   			});
   		$(".show_about")
   			.click(function() {
+  				$(".page")
+  					.slideUp();
   				$(".about")
   					.stop()
   					.slideToggle();
-  				$(".favs")
-  					.slideUp();
-  				$(".logged_in")
-  					.slideUp();
-  				$(".check_ticket_by_number")
-  					.slideUp();
-  				$(".login_form")
-  					.slideUp();
   				$(".posts")
   					.html("");
   			});
   		$(".show_favorites")
   			.click(function() {
+  				$(".page")
+  					.slideUp();
   				$(".favs")
   					.stop()
   					.slideToggle();
-  				$(".about")
-  					.slideUp();
-  				$(".logged_in")
-  					.slideUp();
-  				$(".check_ticket_by_number")
-  					.slideUp();
-  				$(".login_form")
-  					.slideUp();
   				$(".posts")
   					.html("");
   				get_history();

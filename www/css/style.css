@@ -459,9 +459,7 @@ body, #main_page, .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wr
   overflow: hidden;
 }
 
-.about {
-  margin-top: 5%;
-}
+.about {}
 
 .about h1 {
   margin-bottom: 15px;
