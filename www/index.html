@@ -188,7 +188,7 @@
             <button class="btn btn-success order_pr col-xs-12">اطلب الآن</button>
           </form>
         </div>
-        <div id="new_user" class="page new_user col-xs-12 no-padding" style="display:none">
+        <div id="new_user" class="page col-xs-12 no-padding" style="display:none">
           <h2 class="title h2 col-xs-12">
             <i class="fa fa-list"></i>تسجيل مستخدم جديد
           </h2>
@@ -242,11 +242,15 @@
             <h2 class="h2">
               <i class="fa fa-th"></i>منتجاتي</h2>
             <br/>
+            <div class="table-responsive"></div>
           </div>
           <div class="tickets page">
             <h2 class="h2">
               <i class="fa fa-cogs"></i>طلبات الصيانة
             </h2>
+            <div class="table-responsive">
+              <table class="table table-striped"></table>
+            </div>
             <br/>
           </div>
         </div>
@@ -286,7 +290,7 @@
       <a class="show_about">
         <i class="fa fa-info-circle"></i>
         <span>عن التطبيق</span></a>
-      <a id="logout" style="display:none !important">
+      <a id="logout" class="hidden">
         <i class="fa fa-power-off"></i>
         <span>تسجيل الخروج</span>
       </a>

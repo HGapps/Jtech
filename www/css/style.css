@@ -183,6 +183,7 @@ body {}
   opacity: 0;
   font-size: 12px;
   border-radius: 0;
+  color: #000000;
 }
 
 .skip_to_home {
@@ -229,7 +230,7 @@ body {}
   FLOAT: left;
   border-radius: 0 !important;
   width: 100%;
-  padding: 20px 18% 24px 0 !important;
+  padding: 38px 18% 24px 0 !important;
   background: #04619d !important;
   color: #ffffff;
 }
@@ -274,7 +275,7 @@ td {
 }
 
 #show_menu {
-  padding: 0px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
   background: none;
   border: 0;
   color: #f68122;
@@ -321,6 +322,10 @@ td {
   white-space: nowrap;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .bottom_buttons {
   opacity: 0.90;
   position: fixed;
@@ -345,7 +350,7 @@ td {
 }
 
 .bottom_buttons a {
-  display: block !important;
+  display: table;
   width: 90%;
   margin: 0 auto;
   clear: both;

@@ -41,9 +41,9 @@ $(document)
 			$(".logged_in")
 				.show();
 			$("#logout")
-				.show();
+				.removeClass('hidden');
 			$(".login_link")
-				.hide();
+				.addClass('hidden');
 			get_user_prdcts($storedID);
 			get_user_tickets($storedID);
 		}
@@ -71,7 +71,7 @@ $(document)
 		$("#logout")
 			.click(function() {
 				$("#logout")
-					.hide();
+					.addClass('hidden');
 				localStorage.login_is = "";
 				localStorage.pass_is = "";
 				localStorage.u_id = "";
@@ -86,7 +86,7 @@ $(document)
 				$.each(u_prdct, function(i, tr) {
 					//alert(tr.pr_sn);
 					$(".logged_in .products")
-						.append('<div><span>product</span><span>' + tr.c_product + '</span>');
+						.append('<table class="table table-striped"><tr><td>product</td><td>' + tr.c_product + '</td></tr><tr><td>Serial No.</td><td>' + tr.pr_sn + '</td></tr><tr><td>Buy Date</td><td>' + tr.b_date + '</td></tr><table>');
 				});
 			});
 		}
@@ -152,7 +152,9 @@ $(document)
 					$(".login_success")
 						.fadeIn("1000");
 					$("#logout")
-						.slideDown("1000");
+						.removeClass("hidden");
+					$(".login_link")
+						.addClass('hidden');
 					/*-----------------*/
 					get_user_prdcts($u_id);
 					get_user_tickets($u_id);
