@@ -1,9 +1,10 @@
 /*body { background:#f8f8f8 url(images/logo-2.jpg) top center no-repeat; padding-top:120px; background-size:contain; }*/
 
-@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-::-webkit-scrollbar {
+/*@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);*/
+
+/*::-webkit-scrollbar {
   display: none;
-}
+}*/
 
 a {
   text-decoration: none !important
