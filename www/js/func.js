@@ -202,6 +202,26 @@ $(document)
 						"left": "-100%"
 					});
 			});
+		$(".show_pr")
+			.click(function() {
+				$(".page")
+					.slideUp();
+				$(".product_is")
+					.stop()
+					.slideToggle();
+				$(".posts")
+					.html("");
+			});
+		$(".new_user")
+			.click(function() {
+				$(".page")
+					.slideUp();
+				$("#new_user")
+					.stop()
+					.slideToggle();
+				$(".posts")
+					.html("");
+			});
 		$(".login_link")
 			.click(function() {
 				$(".page")

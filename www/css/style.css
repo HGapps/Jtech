@@ -172,6 +172,18 @@ body {}
   text-transform: lowercase;
 }
 
+.new_user {
+  position: absolute;
+  left: 20%;
+  width: 60%;
+  color: #ffffff !important;
+  bottom: 15%;
+  z-index: 99;
+  opacity: 0;
+  font-size: 12px;
+  border-radius: 0;
+}
+
 .skip_to_home {
   position: absolute;
   left: 0%;
@@ -251,8 +263,17 @@ form a, .login_form a, .check_ticket_by_number a {
   text-decoration: underline;
 }
 
+td {
+  padding: 4px;
+}
+
+.order_pr {
+  margin-top: 20px;
+  color: #ffffff !important;
+}
+
 #show_menu {
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   background: none;
   border: 0;
   color: #f68122;
@@ -353,11 +374,15 @@ form a, .login_form a, .check_ticket_by_number a {
 }
 
 .main_ticket {
-  box-shadow: inset #fdf2d5 0px 0px 100px 0px;
+  box-shadow: inset #e8f4fb 0px 0px 100px 0px;
   border: 2px solid;
   margin-bottom: 20px;
   border-radius: 6px;
   padding: 10px;
+  border: 1px solid #04619d;
+  border-radius: 0;
+  width: 90%;
+  margin-right: 5%;
 }
 
 .main_ticket, .posts .comment, .main_ticket p, .posts .comment p {
