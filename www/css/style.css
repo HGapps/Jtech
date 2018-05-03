@@ -6,6 +6,20 @@
   display: none;
 }*/
 
+.new_forms {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #ffffff;
+  top: 100%;
+  opacity: 0;
+  z-index: 9999999;
+}
+
+.add_prdct, .add_ticket {
+  float: left !important;
+}
+
 a {
   text-decoration: none !important
 }
@@ -339,7 +353,7 @@ td {
   padding-top: 5vh;
 }
 
-.bottom_buttons .close_me {
+.bottom_buttons .close_me, .close_forms {
   position: absolute;
   padding: 5px 20px;
   color: #ffffff;
@@ -347,6 +361,10 @@ td {
   font-weight: 700;
   top: 0px;
   left: 0px
+}
+
+.close_forms {
+  color: red
 }
 
 .bottom_buttons a {
