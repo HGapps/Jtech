@@ -50,18 +50,18 @@
           </select>
         </fieldset>
         <fieldset>
-          <input type="number" class="pr_sn form-control" placeholder="اكتب رقم الجهاز التسلسلي"/>
+          <input type="number" class="t_pr_sn form-control" placeholder="اكتب رقم الجهاز التسلسلي"/>
         </fieldset>
         <fieldset>
           <input type="date" class="b_date form-control" placeholder="تاريخ الشراء"/>
         </fieldset>
         <fieldset>
-          <input type="text" class="user_notes form-control" placeholder="العنوان"/>
+          <input type="text" class="u_address form-control" placeholder="العنوان"/>
         </fieldset>
         <fieldset>
-          <textarea rows="5" class="user_notes form-control" placeholder="ملاحظات / الغرض من طلب الصيانة"></textarea>
+          <textarea rows="5" class="u_notes form-control" placeholder="ملاحظات / الغرض من طلب الصيانة"></textarea>
         </fieldset>
-        <button onclick="" class="btn btn-success col-xs-12">إضافة</button>
+        <button onclick="new_ticket()" class="btn btn-success col-xs-12">إضافة</button>
       </form>
     </div>
     <!-- End new forms -->
@@ -88,19 +88,19 @@
         <!--<a data-icon="bars" data-iconpos="notext" data-role="button" href="#menu" class="bars_icon ui-btn-right">القائمة</a>-->
       </div>
       <!-- End page header -->
+      <div id="carouselExampleIndicators" class="carousel slide row" data-ride="carousel">
+        <div class="carousel-inner" role="listbox"></div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
       <div role="main" class="ui-content main col-xs-12">
         <div class="login_form page">
-          <div id="carouselExampleIndicators" class="carousel slide row" data-ride="carousel">
-            <div class="carousel-inner" role="listbox"></div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
           <!--<img src="images/logo.png" class="logo" />-->
           <ul class="nav nav-tabs login_tabs">
             <li class="col-xs-6">

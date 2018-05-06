@@ -7,7 +7,7 @@
 }*/
 
 .new_forms {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background: #ffffff;
@@ -244,9 +244,10 @@ body {}
   FLOAT: left;
   border-radius: 0 !important;
   width: 100%;
-  padding: 38px 18% 24px 0 !important;
+  padding: 25px 18% 36px 0 !important;
   background: #04619d !important;
   color: #ffffff;
+  border: none;
 }
 
 .login_form {
@@ -784,13 +785,12 @@ label {
 }
 
 #carouselExampleIndicators {
-  margin-top: 15px;
+  /*margin-top: 15px;*/
 }
 
 .carousel {
   direction: ltr;
-  margin: 0px 0%;
-  border-radius: 20px;
+  margin: -67px 0 0 0;
   border: 3px solid #0172bb;
   overflow: hidden;
   display: block;
