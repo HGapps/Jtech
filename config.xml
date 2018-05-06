@@ -30,6 +30,15 @@ JANA Tech جنى تك
     <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-network-information" />
 
+
+    <!--<platform name="android">-->
+        <gap:config-file plateform="android">
+    <plugin name="cordova-plugin-statusbar" />
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#333333" />
+  </gap:config-file>
+    <!--</platform>-->
+
     <!--<platform name="ios">-->
         <gap:config-file plateform="ios">
           <preference name="fullscreen" value="true" />

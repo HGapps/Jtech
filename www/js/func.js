@@ -52,9 +52,10 @@ function new_user() {
 	if (($user_pass != "") && ($user_re_pass != "") && ($user_pass == $user_re_pass)) {
 		$('.preloader')
 			.fadeIn();
-		var url = "https://janatech.sa/api/?new_user=true&user_email=" + $user_email + "&user_pass=" + $user_pass + "&user_mobile =" + $user_mobile + "&user_token =" + localStorage.token;
+		var url = "https://janatech.sa/api/?new_user=true&user_email=" + $user_email + "&user_pass=" + $user_pass + "&user_mobile=" + $user_mobile + "&user_token=" + localStorage.token;
+		console.log(url);
 		$.getJSON(url, function(new_user) {
-			//console.log(new_user);
+			console.log(new_user);
 			$('#new_user_holder form')
 				.fadeOut();
 			$("#new_user_holder")
@@ -80,11 +81,11 @@ function get_user_prdcts(storedID) {
 	console.log(url_user_prdct);
 	$.getJSON(url_user_prdct, function(u_prdct) {
 		console.log(u_prdct);
-		$(".logged_in .products")
-			.html();
+		$(".logged_in .products .table-responsive")
+			.html("");
 		$.each(u_prdct, function(i, tr) {
 			//alert(tr.pr_sn);
-			$(".logged_in .products")
+			$(".logged_in .products .table-responsive")
 				.append('<table class="table table-striped"><tr><td>product</td><td>' + tr.c_product + '</td></tr><tr><td>Serial No.</td><td>' + tr.pr_sn + '</td></tr><tr><td>Buy Date</td><td>' + tr.b_date + '</td></tr><table>');
 		});
 	});
@@ -97,7 +98,7 @@ function get_user_tickets(storedID) {
 		//alert('get_products');
 		console.log(u_ticks);
 		$(".logged_in .tickets table")
-			.html();
+			.html("");
 		$.each(u_ticks, function(i, tr) {
 			$(".logged_in .tickets table")
 				.append('<tr>' + tr.tr + '</tr>');
@@ -125,13 +126,14 @@ function new_product() {
 		$('.close_forms')
 			.click();
 		//alert($author_id);
-		//get_user_prdcts($author_id);
+		get_user_prdcts($author_id);
 		$(".preloader")
 			.fadeOut();
 	});
 };
 
 function new_ticket() {
+	//alert("new");
 	$author_id = localStorage.getItem('u_id');
 	$author_pass = localStorage.getItem('pass_is');
 	$author_username = localStorage.getItem('login_is');
@@ -150,12 +152,12 @@ function new_ticket() {
 	var url = "https://janatech.sa/api/?add_ticket=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&prd_model=" + $prd_model + "&pr_sn=" + $pr_sn + "&b_date=" + $b_date + "&u_address=" + $u_address + "&u_notes=" + $u_notes;
 	//console.log(url);
 	$.getJSON(url, function(add_ticket) {
-		//console.log(add_ticket);
-		get_user_tickets($author_id);
+		console.log(add_ticket);
+		//get_user_tickets($author_id);
 		$('.close_forms')
 			.click();
 		//alert($author_id);
-		//get_user_prdcts($author_id);
+		get_user_tickets($author_id);
 		$(".preloader")
 			.fadeOut();
 	});
