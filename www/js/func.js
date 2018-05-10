@@ -12,6 +12,10 @@ function notify(T_id_is) {
 			$("#main_page .posts")
 				.html("");
 			$("#main_page .posts")
+				.append("رقم طلب الصيانة <b>" + $t_id + "</b>");
+			$("#main_page .posts")
+				.append('<div class="col-xs-12"><textarea class="u_comment form-control"></textarea><input type="hidden" class="t_id2" value="' + $t_id + '" /><button class="btn btn-success add_comment">أرسل رد</button></div>');
+			$("#main_page .posts")
 				.append('<div class="col-xs-12"><h2>' + tick['ticket'].title + '</h2><span class="btn btn-warning">' + tick['ticket'].status + '</span></div>');
 			$.each(tick['comment'], function(i, comment) {
 				$("#main_page .posts")
@@ -19,6 +23,8 @@ function notify(T_id_is) {
 			});
 			$("#main_page .posts")
 				.append('<div class="col-xs-12 main_ticket"><p>' + tick['ticket'].content + '</p></div>');
+			$('.tickets  , .products')
+				.slideUp();
 			$(".preloader")
 				.fadeOut();
 		});
@@ -74,6 +80,54 @@ function new_user() {
 	}
 	/*});*/
 }
+/*------------------- Ticket Query --------------------------*/
+$(document)
+	.on('click', '.t_show', function() {
+		//localStorage.favs = "";
+		if ($(".t_id")
+			.val() !== "") {
+			$(".preloader")
+				.fadeIn();
+			$t_id = $(".t_id")
+				.val();
+			//To store the array, do what you're doing: localStorage.setItem("favs", JSON.stringify(favs));
+			var favs = JSON.parse(localStorage.getItem("favs") || "[]");
+			console.log("# of favs: " + favs.length);
+			favs.forEach(function(fav, index) {
+				console.log("[" + index + "]: " + fav.id);
+			});
+			//localStorage.checked_tickets =+ $t_id; alert($t_id);
+			var url = "https://janatech.sa/api/?Ticket_id=" + $t_id;
+			//alert(url);
+			$.getJSON(url, function(tick) {
+				//alert("test"); console.log(result);
+				$("#main_page .posts")
+					.html("");
+				$("#main_page .posts")
+					.append('<div class="col-xs-12"><h2>' + tick['ticket'].title + '</h2><span class="btn btn-warning">' + tick['ticket'].status + '</span></div>');
+				$("#main_page .posts")
+					.append('<div class="col-xs-12"><textarea class="u_comment form-control"></textarea><input type="hidden" class="t_id2" value="' + $t_id + '" /><button class="btn btn-success add_comment">أرسل رد</button></div>');
+				$.each(tick['comment'], function(i, comment) {
+					//alert('inside comments');
+					$("#main_page .posts")
+						.append('<div class="col-xs-12 comment"><h2>' + comment.c_date + '</h2><p>' + comment.content + '</p></div>');
+				});
+				$("#main_page .posts")
+					.append('<div class="col-xs-12"><p>' + tick['ticket'].content + '</p></div>');
+				$CheckExistsFavs = favs.indexOf($t_id);
+				//alert($CheckExistsFavs);
+				if ($CheckExistsFavs == -1) {
+					favs.push($t_id);
+					// Saving
+					localStorage.setItem("favs", JSON.stringify(favs));
+					//alert(localStorage.getItem("favs"));
+				}
+				$(".preloader")
+					.fadeOut();
+			});
+		}
+	});
+/*------------------- End of query show ---------------------*/
 /*// Get Products */
 function get_user_prdcts(storedID) {
 	var dataProducts = "get_products=true&user=" + storedID;
@@ -158,6 +212,73 @@ function new_ticket() {
 			.click();
 		//alert($author_id);
 		get_user_tickets($author_id);
+		$(".preloader")
+			.fadeOut();
+	});
+};
+$(document)
+	.on('click', '.add_comment', function() {
+		new_comment();
+	});
+
+function new_comment() {
+	//alert("new");
+	$author_id = localStorage.getItem('u_id');
+	$author_pass = localStorage.getItem('pass_is');
+	$author_username = localStorage.getItem('login_is');
+	$t_id = $('.t_id2')
+		.val();
+	$u_comment = $('.u_comment')
+		.val();
+	$('.preloader')
+		.fadeIn();
+	var url = "https://janatech.sa/api/?add_comment=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&u_comment=" + $u_comment + "&t_id=" + $t_id;
+	console.log(url);
+	$.getJSON(url, function(add_comment) {
+		//console.log(add_comment);
+		notify($t_id);
+		//get_user_tickets($author_id);
+		//$('.close_forms').click();
+		//alert($author_id);
+		//get_user_tickets($author_id);
+		$(".preloader")
+			.fadeOut();
+	});
+};
+
+function order_pr() {
+	//alert("new");
+	$author_id = localStorage.getItem('u_id');
+	$author_pass = localStorage.getItem('pass_is');
+	$author_username = localStorage.getItem('login_is');
+	$u_name_order = $('.u_name_order')
+		.val();
+	$u_address_order = $('.u_address_order')
+		.val();
+	$u_mobile_order = $('.u_mobile_order')
+		.val();
+	$pr_model_order = $('.pr_model_order')
+		.val();
+	$u_notes_order = $('.u_notes_order')
+		.val();
+	$u_email_order = $('.u_email_order')
+		.val();
+	$('.preloader')
+		.fadeIn();
+	var url = "https://janatech.sa/api/?order_pr=true&user_name=" + $author_username + "&u_name_order=" + $u_name_order + "&u_address_order=" + $u_address_order + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&u_notes_order=" + $u_notes_order + "&pr_model_order=" + $pr_model_order + "&u_mobile_order=" + $u_mobile_order + "&u_email_order=" + $u_email_order;
+	console.log(url);
+	$.getJSON(url, function(order_pr_now) {
+		console.log(order_pr_now);
+		//get_user_tickets($author_id);
+		//$('.close_forms').click();
+		//alert($author_id);
+		//get_user_tickets($author_id);
+		$('.order_pr')
+			.slideUp();
+		$('.order_form')
+			.slideUp();
+		$('.order_sent')
+			.slideToggle();
 		$(".preloader")
 			.fadeOut();
 	});
@@ -265,7 +386,7 @@ $(document)
 						$.getJSON(url, function(tick) {
 							//alert("test"); console.log(result); $u_fake_id = $storedID * 2; alert($u_fake_id);  alert(fav); $fav_is = fav;
 							$(".favs table tbody")
-								.append('<tr><td><a href="#" data-link="' + fav + '" id="ticket_link" class="ticket_link" onclick="notify(' + fav + ')">' + tick['ticket'].title + '</a></td><td><span class = "btn btn-warning" > ' + tick['ticket'].status + '</span></td></tr> ');
+								.append('<tr><td>' + fav + '</td><td><a href="#" data-link="' + fav + '" id="ticket_link" class="ticket_link" onclick="notify(' + fav + ')">' + tick['ticket'].title + '</a></td><td><span class = "btn btn-warning" > ' + tick['ticket'].status + '</span></td></tr> ');
 						});
 					});
 				}
@@ -284,6 +405,7 @@ $(document)
 			//alert(user); var dataString = "user=" + user + "&pass=" + pass + "&login=";
 			var dataString = "user=" + user + "&pass=" + pass;
 			var url2 = "https://janatech.sa/api/?" + dataString;
+			//console.log(url2);
 			$.getJSON(url2, function(login) {
 				$login_status = login.status;
 				$u_id = login.u_id;
@@ -366,6 +488,9 @@ $(document)
 			});
 		$(".order_pr")
 			.click(function() {
+				$(".pr-description")
+					.stop()
+					.slideToggle();
 				$(".order_form")
 					.stop()
 					.slideToggle();

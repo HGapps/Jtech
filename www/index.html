@@ -122,7 +122,7 @@
               <!--<a class="search_link">تخطي ، الاستعلام برقم التذكرة فقط .</a>-->
             </div>
             <div id="coms" class="tab-pane fade">
-              <input type="text" class="form-control user border-warning" name="user" placeholder="اسم المستخدم" value="" pattern="[a-z]{5,10}" required="required" autofocus="autofocus">
+              <input type="text" class="form-control user border-warning" name="user" placeholder="البريد الإلكتروني" value="" pattern="[a-z]{5,10}" required="required" autofocus="autofocus">
               <input type="password" class="form-control pass border-warning" name="pass" placeholder="كلمة المرور" value="" required="required">
               <button id="login" class="btn btn-warning col-xs-12">تسجيل الدخول</button>
               <!--<a class="search_link">تخطي ، الاستعلام برقم التذكرة فقط .</a>-->
@@ -186,60 +186,69 @@
           <h2 class="title h2 col-xs-12">
             <i class="fa fa-list"></i>اسم المنتج
           </h2>
-          <div class="" style="width:100%">
-            <img src="images/150x150.png" class="prd_img radius-15 col-xs-4 row"/>
-            <p class="col-xs-8">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة
-            </p>
+          <div class="col-xs-12 pr-description">
+            <div style="width:100%">
+              <img src="images/150x150.png" class="prd_img radius-15 col-xs-4 row"/>
+              <p class="col-xs-8">هنالك العديد من الأنواع المتوفرة لنصوص لوريم إيبسوم، ولكن الغالبية تم تعديلها بشكل ما عبر إدخال بعض النوادر أو الكلمات العشوائية إلى النص. إن كنت تريد أن تستخدم نص لوريم إيبسوم ما، عليك أن تتحقق أولاً أن ليس هناك أي كلمات أو عبارات محرجة
+              </p>
+            </div>
+            <table style="width:100%">
+              <tr>
+                <th>أبعاد الجهاز</th>
+                <th>545-265-500 mm</th>
+              </tr>
+              <tr>
+                <td>الوزن الصافي</td>
+                <td>18.5 kg</td>
+              </tr>
+              <tr>
+                <td>السعة التخزينية</td>
+                <td>5 لتر</td>
+              </tr>
+              <tr>
+                <td>مصدر الطاقة</td>
+                <td>220 / 240 - 50/60 Hz</td>
+              </tr>
+              <tr>
+                <td>معدل إجمالي الطاقة</td>
+                <td>580 w</td>
+              </tr>
+              <tr>
+                <td>التسخين</td>
+                <td>500w</td>
+              </tr>
+              <tr>
+                <td>التبريد والكمية</td>
+                <td>32g / R123a</td>
+              </tr>
+            </table>
           </div>
-          <table style="width:100%">
-            <tr>
-              <th>أبعاد الجهاز</th>
-              <th>545-265-500 mm</th>
-            </tr>
-            <tr>
-              <td>الوزن الصافي</td>
-              <td>18.5 kg</td>
-            </tr>
-            <tr>
-              <td>السعة التخزينية</td>
-              <td>5 لتر</td>
-            </tr>
-            <tr>
-              <td>مصدر الطاقة</td>
-              <td>220 / 240 - 50/60 Hz</td>
-            </tr>
-            <tr>
-              <td>معدل إجمالي الطاقة</td>
-              <td>580 w</td>
-            </tr>
-            <tr>
-              <td>التسخين</td>
-              <td>500w</td>
-            </tr>
-            <tr>
-              <td>التبريد والكمية</td>
-              <td>32g / R123a</td>
-            </tr>
-          </table>
           <a class="btn btn-primary order_pr col-xs-12">طلب المنتج</a>
           <br/>
           <br/>
           <br/>
-          <form class="col-xs-12 no-padding order_form" style="display:none">
+          <form class="col-xs-12 no-padding order_form" style="display:none" onsubmit="return false">
             <fieldset>
-              <input type="text" placeholder="الاسم الكامل" value="" class="form-control"/>
+              <input type="text" placeholder="الاسم الكامل" value="" class="form-control u_name_order" required="required"/>
             </fieldset>
             <fieldset>
-              <input type="phone" placeholder="رقم الجوال بدون صفر 550000000" value="" class="form-control"/>
+              <input type="phone" placeholder="رقم الجوال بدون صفر 550000000" value="" class="form-control u_mobile_order" required="required"/>
             </fieldset>
             <fieldset>
-              <input type="text" placeholder="العنوان" value="" class="form-control"/>
+              <input type="email" placeholder="بريدك الإلكتروني " class="form-control u_email_order" required="required"/>
             </fieldset>
             <fieldset>
-              <textare placeholder="ملاحظات / توصيات " class="form-control">ملاحظات / توصيات</textarea>
+              <input type="text" placeholder="العنوان" value="" class="form-control u_address_order" required="required"/>
             </fieldset>
-            <button class="btn btn-success order_pr col-xs-12">اطلب الآن</button>
+            <fieldset>
+              <input type="text" placeholder="ملاحظات / توصيات " class="form-control u_notes_order" required="required"/>
+            </fieldset>
+            <input type="hidden" class="form-control pr_model_order" required="required"/>
+            <button class="btn btn-success order_pr_now col-xs-12" onclick="order_pr()">اطلب الآن</button>
           </form>
+          <div class="alert alert-success order_sent" style="display:none">
+            تم استلام طلبكم بنجاح ، ستم الاتصال بكم خلال 48 ساعة لتحديد موعد التسليم ، شكراً لثقتكم في منتجاتنا.
+          </div>
         </div>
         <div id="new_user" class="page col-xs-12 no-padding" style="display:none">
           <h2 class="title h2 col-xs-12">
@@ -357,65 +366,6 @@
     </div>
     <!------------------------------------------>
     <script src="js/jquery.min.js"></script>
-    <script>
-      /*------------------------------------*/
-      $(document).on('click', '.t_show', function () {
-        if ($(".t_id").val() !== "") {
-          $(".preloader").fadeIn();
-          $t_id = $(".t_id").val();
-          //To store the array, do what you're doing: localStorage.setItem("favs", JSON.stringify(favs));
-          var favs = JSON.parse(localStorage.getItem("favs") || "[]");
-          console.log("# of favs: " + favs.length);
-          favs.forEach(function (fav, index) {
-            console.log("[" + index + "]: " + fav.id);
-          });
-          //localStorage.checked_tickets =+ $t_id; alert($t_id);
-          var url = "https://janatech.sa/api/?Ticket_id=" + $t_id;
-          //alert(url);
-          $.getJSON(url, function (tick) {
-            //alert("test"); console.log(result);
-            $("#main_page .posts").html("");
-            $("#main_page .posts").append('<div class="col-xs-12"><h2>' + tick['ticket'].title + '</h2><span class="btn btn-warning">' + tick['ticket'].status + '</span></div>');
-            $.each(tick['comment'], function (i, comment) {
-              //alert('inside comments');
-              $("#main_page .posts").append('<div class="col-xs-12 comment"><h2>' + comment.c_date + '</h2><p>' + comment.content + '</p></div>');
-            });
-            $("#main_page .posts").append('<div class="col-xs-12"><p>' + tick['ticket'].content + '</p></div>');
-            $CheckExistsFavs = favs.indexOf($t_id);
-            //alert($CheckExistsFavs);
-            if ($CheckExistsFavs == -1) {
-              favs.push($t_id);
-              // Saving
-              localStorage.setItem("favs", JSON.stringify(favs));
-              //alert(localStorage.getItem("favs"));
-            }
-            $(".preloader").fadeOut();
-          });
-        }
-      });
-      $(document).ready(function () {
-        $(".preloader").fadeOut(500);
-      });
-      // https://stackoverflow.com/questions/6466135/adding-extra-zeros-in-front-of-a-number-using-jquery
-      function pad(str, max) {
-        str = str.toString();
-        return str.length < max
-          ? pad("0" + str, max)
-          : str;
-      }
-      $(document).on('click', '#ticket_link', function () {
-        $t_id_from_link_data = $(this).data('link');
-        notify($t_id_from_link_data);
-      });
-      $(".close_me").click(function () {
-        $(".bottom_buttons").animate({"left": "-100%"});
-      });
-      function show_menu() {
-        //$("#show_menu").click(function() {
-        $(".bottom_buttons").animate({"left": "0"});
-        //});
-      }
-    </script>
     <script src="js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
@@ -450,6 +400,31 @@
       });
     </script>
     <script type="text/javascript" src="js/func.js"></script>
+    <script>
+      $(document).ready(function () {
+        /*------------------------------------*/
+        $(".preloader").fadeOut(500);
+      });
+      // https://stackoverflow.com/questions/6466135/adding-extra-zeros-in-front-of-a-number-using-jquery
+      function pad(str, max) {
+        str = str.toString();
+        return str.length < max
+          ? pad("0" + str, max)
+          : str;
+      }
+      $(document).on('click', '#ticket_link', function () {
+        $t_id_from_link_data = $(this).data('link');
+        notify($t_id_from_link_data);
+      });
+      $(".close_me").click(function () {
+        $(".bottom_buttons").animate({"left": "-100%"});
+      });
+      function show_menu() {
+        //$("#show_menu").click(function() {
+        $(".bottom_buttons").animate({"left": "0"});
+        //});
+      }
+    </script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
