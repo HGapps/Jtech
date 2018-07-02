@@ -45,7 +45,6 @@ JANA Tech جنى تك
     <!--<platform name="ios">-->
         <gap:config-file plateform="ios">
           <preference name="fullscreen" value="true" />
-
       <!-- Source :: https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-statusbar/ -->
           <!--<preference name="ios-statusbarstyle" value="black-opaque" />-->
     <preference name="StatusBarOverlaysWebView" value="false" />
@@ -61,8 +60,8 @@ JANA Tech جنى تك
   For anyone who's facing a similar problem, the resolution I found is utterly strange but it works, this seems to be some sort of file write problem, and every time I build for iOS on PGB with the fcm-config plugin excluded from config.xml it builds correctly, and then I include the plugin back and re-upload and build again, and it works, and the app is receiving notification tests from FCM Console both in-app and in notification tray perfectly!
   So every time I need to rebuild the app on PGB, I exclude this plugin and build and then simply re-include this plugin and build and it works!!!
   -->
- <plugin spec="https://github.com/HGapps/cordova-plugin-fcm-JNA" />
-    <plugin spec="https://github.com/HGapps/cordova-plugin-fcm-config-JANA"/>
+ <!--<plugin spec="https://github.com/HGapps/cordova-plugin-fcm-JNA" />
+    <plugin spec="https://github.com/HGapps/cordova-plugin-fcm-config-JANA"/>-->
 
 
 
