@@ -34,7 +34,32 @@
         <fieldset>
           <input type="date" class="b_date form-control" placeholder="تاريخ الشراء"/>
         </fieldset>
+        <fieldset>
+          <input type="branch" class="branch form-control" value="الفرع : " placeholder=""/>
+        </fieldset>
         <button onclick="new_product()" class="btn btn-success col-xs-12">إضافة</button>
+      </form>
+      <form class="new_branch" style="display:none" onsubmit="return false">
+        <h2 class="h2">
+          <i class="fa fa-plus"></i>
+           إضافة فرع</h2>
+        <fieldset>
+          <input type="text" value="" placeholder="اسم الفرع" class="br_name form-control" />
+
+        </fieldset>
+        <button onclick="new_branch()" class="btn btn-success col-xs-12">إضافة</button>
+      </form>
+      <form class="com_products">
+        <br />
+        <br />
+        <h2 class="h2 company">
+          <i class="fa fa-th"></i><b></b>
+          <i class="fa fa-plus add_prdct pull_left"></i>
+        </h2>
+        <div class="table-responsive">
+        </div>
+
+
       </form>
       <form class="new_ticket" style="display:none" onsubmit="return false">
         <h2 class="h2">
@@ -54,6 +79,9 @@
         </fieldset>
         <fieldset>
           <input type="date" class="b_date form-control" placeholder="تاريخ الشراء"/>
+        </fieldset>
+        <fieldset  class="company">
+          <input type="text" class="t_branch form-control" placeholder="الفرع"/>
         </fieldset>
         <fieldset>
           <input type="text" class="u_address form-control" placeholder="العنوان"/>
@@ -305,9 +333,15 @@
         <!-- start of loggedin user -->
         <div class="logged_in container-fluid page" style="display:none">
           <div class="products page">
-            <h2 class="h2">
+            <h2 class="h2 personal">
               <i class="fa fa-th"></i>منتجاتي
+
               <i class="fa fa-plus add_prdct pull_left"></i>
+            </h2>
+            <h2 class="h2 company">
+              <i class="fa fa-th"></i>الفروع
+
+              <i class="fa fa-plus add_branch pull_left"></i>
             </h2>
             <br/>
             <div class="table-responsive"></div>

@@ -16,7 +16,7 @@
   z-index: 9999999;
 }
 
-.add_prdct, .add_ticket {
+.add_prdct, .add_ticket , .add_branch {
   float: left !important;
 }
 

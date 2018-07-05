@@ -128,6 +128,60 @@ $(document)
 		}
 	});
 /*------------------- End of query show ---------------------*/
+function get_branchs(storedID){
+	var dataBranchs = "get_branchs=true&user=" + storedID;
+	var url_user_branch = "https://janatech.sa/api/?" + dataBranchs;
+	console.log(url_user_branch);
+	$.getJSON(url_user_branch, function(u_branch) {
+
+		console.log(u_branch);
+		$(".logged_in .products .table-responsive")
+			.html("");
+		$.each(u_branch, function(i, br) {
+			//alert(tr.pr_sn);
+			$branch = br.branch;
+			$(".logged_in .products .table-responsive")
+				.append('<table class="table table-striped"><tr><td>فرع</td><td><a onclick="get_branch_products('+"'"+$branch+"'"+')">' + br.branch + '</a></td></tr><table>');
+		});
+
+	});
+
+}
+
+////////////////////////////////////////////////////
+function get_branch_products($branch_is){
+
+	$(".com_products h2 b").html('أجهزة فرع : '+$branch_is);
+		$(".com_products .table-responsive")
+			.html("");
+	 //alert($branch_is);
+	$('.new_forms > form')
+		.hide();
+	$('.com_products')
+		.show();
+	$(".new_forms")
+		.animate({
+			"top": "10%",
+			"opacity": "0.92"
+		});
+
+		var dataProducts = "get_branch_products=true&user=" + $storedID + "&br_name=" + $branch_is ;
+		var url_com_prdct = "https://janatech.sa/api/?" + dataProducts;
+		console.log(url_com_prdct);
+		$.getJSON(url_com_prdct, function(u_b_prdct) {
+			console.log(u_b_prdct);
+			/*$(".logged_in .products .table-responsive")
+				.html("");*/
+
+			$.each(u_b_prdct, function(i, tr) {
+				//alert(tr.pr_sn);
+				$(".com_products .table-responsive")
+					.append('<table class="table table-striped"><tr><td>product</td><td>' + tr.c_product + '</td></tr><tr><td>Serial No.</td><td>' + tr.pr_sn + '</td></tr><tr><td>Buy Date</td><td>' + tr.b_date + '</td></tr><table>');
+			});
+		});
+
+		$branch_name = $branch_is;
+}
 /*// Get Products */
 function get_user_prdcts(storedID) {
 	var dataProducts = "get_products=true&user=" + storedID;
@@ -144,6 +198,30 @@ function get_user_prdcts(storedID) {
 		});
 	});
 }
+
+
+/*------------ new  branch ----------------*/
+
+function new_branch() {
+	$author_id = localStorage.getItem('u_id');
+	$author_pass = localStorage.getItem('pass_is');
+	$author_username = localStorage.getItem('login_is');
+	$br_name = $('.br_name').val();
+	$('.preloader')
+		.fadeIn();
+	var url = "https://janatech.sa/api/?add_branch=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&br_name=" + $br_name;
+	//console.log(url);
+	$.getJSON(url, function(add_branch) {
+		console.log(add_branch);
+		$('.close_forms')
+			.click();
+		//alert($author_id);
+		get_branchs($author_id);
+		$(".preloader")
+			.fadeOut();
+	});
+};
+
 /*// Get Tickets*/
 function get_user_tickets(storedID) {
 	var dataTickets = "get_tickets=true&user=" + storedID;
@@ -172,15 +250,15 @@ function new_product() {
 		.val();
 	$('.preloader')
 		.fadeIn();
-	var url = "https://janatech.sa/api/?add_product=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&prd_model=" + $prd_model + "&pr_sn=" + $pr_sn + "&b_date=" + $b_date;
-	//console.log(url);
+	var url = "https://janatech.sa/api/?add_product=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&prd_model=" + $prd_model + "&pr_sn=" + $pr_sn + "&b_date=" + $b_date +"&branch="+$branch_name;
+	console.log(url);
 	$.getJSON(url, function(add_product) {
 		//console.log(add_product);
 		get_user_prdcts($author_id);
 		$('.close_forms')
 			.click();
 		//alert($author_id);
-		get_user_prdcts($author_id);
+		get_branchs($author_id);
 		$(".preloader")
 			.fadeOut();
 	});
@@ -201,9 +279,11 @@ function new_ticket() {
 		.val();
 	$u_notes = $('.u_notes')
 		.val();
+		$t_branch = $('.t_branch')
+			.val();
 	$('.preloader')
 		.fadeIn();
-	var url = "https://janatech.sa/api/?add_ticket=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&prd_model=" + $prd_model + "&pr_sn=" + $pr_sn + "&b_date=" + $b_date + "&u_address=" + $u_address + "&u_notes=" + $u_notes;
+	var url = "https://janatech.sa/api/?add_ticket=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&prd_model=" + $prd_model + "&pr_sn=" + $pr_sn + "&b_date=" + $b_date + "&u_address=" + $u_address + "&u_notes=" + $u_notes+"&t_branch" = $t_branch;
 	//console.log(url);
 	$.getJSON(url, function(add_ticket) {
 		console.log(add_ticket);
@@ -292,6 +372,7 @@ $('.close_forms')
 	});
 $('.add_prdct')
 	.click(function() {
+		//alert('clicked');
 		$('.new_forms > form')
 			.hide();
 		$('.new_product')
@@ -301,7 +382,21 @@ $('.add_prdct')
 				"top": "10%",
 				"opacity": "0.92"
 			});
+
+			$('.branch').val($branch_name);
 	});
+	$('.add_branch')
+		.click(function() {
+			$('.new_forms > form')
+				.hide();
+			$('.new_branch')
+				.show();
+			$(".new_forms")
+				.animate({
+					"top": "10%",
+					"opacity": "0.92"
+				});
+		});
 $('.add_ticket')
 	.click(function() {
 		$('.new_forms > form')
@@ -320,6 +415,7 @@ $(document)
 		$storedName = localStorage.getItem('login_is');
 		$storedPw = localStorage.getItem('pass_is');
 		$storedID = localStorage.getItem('u_id');
+		$storedAccType = localStorage.getItem('acc_type');
 		//alert($storedName + $storedPw + $storedID);
 		if ((($storedName !== "") && ($storedPw !== "")) && (($storedName !== null) && ($storedPw !== null))) {
 			$('.slide')
@@ -338,8 +434,18 @@ $(document)
 				.removeClass('hidden');
 			$(".login_link")
 				.addClass('hidden');
+			//	alert($storedAccType);
+				if($storedAccType == "personal") {
 			get_user_prdcts($storedID);
 			get_user_tickets($storedID);
+				$(".company").hide(); }
+
+			if($storedAccType == "company") {
+		get_branchs($storedID);
+		get_user_tickets($storedID);
+		$(".personal").hide();
+}
+
 		}
 		/*///////////////// Get Slides /////////////////////////*/
 		var url = "https://janatech.sa/api/?slides_is=show";
@@ -409,11 +515,26 @@ $(document)
 			$.getJSON(url2, function(login) {
 				$login_status = login.status;
 				$u_id = login.u_id;
+				$acc_type = login.acc_type;
+
+				if($acc_type == "personal") {
+			get_user_prdcts($storedID);
+			get_user_tickets($storedID);
+				$(".company").hide(); }
+
+			if($acc_type == "company") {
+			get_branchs($storedID);
+			get_user_tickets($storedID);
+			$(".personal").hide();
+			}
+
+
 				if ($login_status == true) {
 					// REFRENCE : https://www.w3schools.com/html/html5_webstorage.asp https://www.w3schools.com/jsref/prop_win_localstorage.asp
 					localStorage.login_is = user;
 					localStorage.pass_is = pass;
 					localStorage.u_id = $u_id;
+					localStorage.acc_type = $acc_type;
 					//alert("Login Success");
 					$(".login_form")
 						.stop()
@@ -428,8 +549,13 @@ $(document)
 					//alert($u_id);
 					$('.slide')
 						.hide();
+						if($acc_type == "personal") {
 					get_user_prdcts($u_id);
-					get_user_tickets($u_id);
+					get_user_tickets($u_id); }
+
+					if($acc_type == "company") {
+				get_branchs($u_id);
+				get_user_tickets($u_id); }
 					$(".logged_in")
 						.fadeIn("1000");
 					//$(".login_success").fadeOut("3000");
