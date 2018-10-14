@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS -->
     <!--<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css" />-->
-    <link rel='stylesheet' id='bootstrap.min-css' href="bs/scss/bootstrap.css" type='text/css' media='all'/>
+    <link rel='stylesheet' id='bootstrap.min-css' href="bs/css/bootstrap.min.css" type='text/css' media='all'/>
     <link rel='stylesheet' id='bootstrap.min-css-rtl' href='bs/css/bootstrap-rtl.min.css' type='text/css' media='all'/>
     <link rel='stylesheet' id='css-style' href='css/style.css' type='text/css' media='all'/>
     <link rel='stylesheet' id='css-style' href="css/fa/css/font-awesome.min.css" type='text/css' media='all'/>
@@ -35,31 +35,28 @@
           <input type="date" class="b_date form-control" placeholder="تاريخ الشراء"/>
         </fieldset>
         <fieldset>
-          <input type="branch" class="branch form-control" value="الفرع : " placeholder=""/>
+          <input type="branch" class="branch form-control" value="" placeholder="الفرع"/>
         </fieldset>
         <button onclick="new_product()" class="btn btn-success col-xs-12">إضافة</button>
       </form>
       <form class="new_branch" style="display:none" onsubmit="return false">
         <h2 class="h2">
           <i class="fa fa-plus"></i>
-           إضافة فرع</h2>
+          إضافة فرع</h2>
         <fieldset>
-          <input type="text" value="" placeholder="اسم الفرع" class="br_name form-control" />
-
+          <input type="text" value="" placeholder="اسم الفرع" class="br_name form-control"/>
         </fieldset>
         <button onclick="new_branch()" class="btn btn-success col-xs-12">إضافة</button>
       </form>
       <form class="com_products">
-        <br />
-        <br />
+        <br/>
+        <br/>
         <h2 class="h2 company">
-          <i class="fa fa-th"></i><b></b>
+          <i class="fa fa-th"></i>
+          <b></b>
           <i class="fa fa-plus add_prdct pull_left"></i>
         </h2>
-        <div class="table-responsive">
-        </div>
-
-
+        <div class="table-responsive"></div>
       </form>
       <form class="new_ticket" style="display:none" onsubmit="return false">
         <h2 class="h2">
@@ -80,7 +77,7 @@
         <fieldset>
           <input type="date" class="b_date form-control" placeholder="تاريخ الشراء"/>
         </fieldset>
-        <fieldset  class="company">
+        <fieldset class="company">
           <input type="text" class="t_branch form-control" placeholder="الفرع"/>
         </fieldset>
         <fieldset>
@@ -116,7 +113,6 @@
         <!--<a data-icon="bars" data-iconpos="notext" data-role="button" href="#menu" class="bars_icon ui-btn-right">القائمة</a>-->
       </div>
       <!-- End page header -->
-
       <div role="main" class="ui-content main col-xs-12">
         <div class="login_form page">
           <!--<img src="images/logo.png" class="logo" />-->
@@ -325,12 +321,10 @@
           <div class="products page">
             <h2 class="h2 personal">
               <i class="fa fa-th"></i>منتجاتي
-
               <i class="fa fa-plus add_prdct pull_left"></i>
             </h2>
             <h2 class="h2 company">
               <i class="fa fa-th"></i>الفروع
-
               <i class="fa fa-plus add_branch pull_left"></i>
             </h2>
             <br/>
