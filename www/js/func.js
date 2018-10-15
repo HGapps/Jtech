@@ -248,7 +248,9 @@ function new_product() {
 		$('.close_forms')
 			.click();
 		//alert($author_id);
-		get_branchs($author_id);
+		if ($storedAccType == "company") {
+			get_branchs($author_id);
+		}
 		$(".preloader")
 			.fadeOut();
 	});
@@ -426,11 +428,17 @@ $(document)
 			$(".login_link")
 				.addClass('hidden');
 			//	alert($storedAccType);
-			if ($storedAccType == "personal") {
+			if ($storedAccType == "personal" || ($storedAccType == "branch")) {
 				get_user_prdcts($storedID);
 				get_user_tickets($storedID);
 				$(".company")
 					.hide();
+				if ($storedAccType == "branch") {
+					$(".add_branch")
+						.hide();
+					$('input.branch')
+						.hide();
+				}
 			}
 			if ($storedAccType == "company") {
 				get_branchs($storedID);
@@ -508,17 +516,27 @@ $(document)
 				$login_status = login.status;
 				$u_id = login.u_id;
 				$acc_type = login.acc_type;
-				if ($acc_type == "personal") {
+				if ($acc_type == "personal" || ($acc_type == "branch")) {
 					get_user_prdcts($storedID);
 					get_user_tickets($storedID);
 					$(".company")
 						.hide();
+					if ($storedAccType == "branch") {
+						$(".add_branch")
+							.hide();
+						$('input.branch')
+							.hide();
+					}
 				}
 				if ($acc_type == "company") {
 					get_branchs($storedID);
 					get_user_tickets($storedID);
 					$(".personal")
 						.hide();
+					if ($storedAccType == "branch") {
+						$(".add_branch")
+							.hide();
+					}
 				}
 				if ($login_status == true) {
 					// REFRENCE : https://www.w3schools.com/html/html5_webstorage.asp https://www.w3schools.com/jsref/prop_win_localstorage.asp
@@ -540,7 +558,7 @@ $(document)
 					//alert($u_id);
 					$('.slide')
 						.hide();
-					if ($acc_type == "personal") {
+					if ($acc_type == "personal" || ($acc_type == "branch")) {
 						get_user_prdcts($u_id);
 						get_user_tickets($u_id);
 					}
