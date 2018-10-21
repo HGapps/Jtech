@@ -146,6 +146,8 @@ function get_branchs(storedID) {
 }
 ////////////////////////////////////////////////////
 function get_branch_products($branch_is) {
+	localStorage.branchName =  $branch_is;
+	$branch_name_is = localStorage.branchName ;
 	$(".com_products h2 b")
 		.html('أجهزة فرع : ' + $branch_is);
 	$(".com_products .table-responsive")
@@ -194,10 +196,14 @@ function get_user_prdcts(storedID) {
 /*------------ new  branch ----------------*/
 function new_branch() {
 	$author_id = localStorage.getItem('u_id');
+	//if($acc_type == "company") {$author_id =  localStorage.branchName;} else { $author_id = localStorage.getItem('u_id'); }
 	$author_pass = localStorage.getItem('pass_is');
 	$author_username = localStorage.getItem('login_is');
-	$br_name = $('.br_name')
-		.val();
+	//$br_name = $('.br_name').val();
+
+	$br_name = localStorage.branchName;
+
+	console.log(localStorage.branchName);
 	$('.preloader')
 		.fadeIn();
 	var url = "https://janatech.sa/api/?add_branch=true&user_name=" + $author_username + "&pass_is=" + $author_pass + "&author_id=" + $author_id + "&br_name=" + $br_name;
@@ -411,6 +417,8 @@ $(document)
 		$storedAccType = localStorage.getItem('acc_type');
 		//alert($storedName + $storedPw + $storedID);
 		if ((($storedName !== "") && ($storedPw !== "")) && (($storedName !== null) && ($storedPw !== null))) {
+
+			$('.splash').hide();
 			$('.slide')
 				.hide();
 			$('.new_user_home')
@@ -445,6 +453,8 @@ $(document)
 				get_user_tickets($storedID);
 				$(".personal")
 					.hide();
+					$('input.branch')
+						.hide();
 			}
 		}
 		/*///////////////// Get Slides /////////////////////////*/
@@ -517,8 +527,8 @@ $(document)
 				$u_id = login.u_id;
 				$acc_type = login.acc_type;
 				if ($acc_type == "personal" || ($acc_type == "branch")) {
-					get_user_prdcts($storedID);
-					get_user_tickets($storedID);
+					get_user_prdcts($u_id);
+					get_user_tickets($u_id);
 					$(".company")
 						.hide();
 					if ($storedAccType == "branch") {
@@ -529,8 +539,8 @@ $(document)
 					}
 				}
 				if ($acc_type == "company") {
-					get_branchs($storedID);
-					get_user_tickets($storedID);
+					get_branchs($u_id);
+					get_user_tickets($u_id);
 					$(".personal")
 						.hide();
 					if ($storedAccType == "branch") {
